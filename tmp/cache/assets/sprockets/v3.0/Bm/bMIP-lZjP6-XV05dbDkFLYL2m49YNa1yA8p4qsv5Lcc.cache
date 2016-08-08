@@ -1,0 +1,24 @@
+I"y(function() {
+  var ready;
+
+  ready = function() {
+    var subcategories;
+    subcategories = $('#support_sub_categories_id').html();
+    return $('#support_category_id').change(function() {
+      var categoria, opciones;
+      categoria = $('#support_category_id :selected').text();
+      opciones = $(subcategories).filter("optgroup[label='" + categoria + "']").html();
+      if (opciones) {
+        return $('#support_sub_categories_id').html(opciones);
+      } else {
+        return $('#support_sub_categories_id').empty();
+      }
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

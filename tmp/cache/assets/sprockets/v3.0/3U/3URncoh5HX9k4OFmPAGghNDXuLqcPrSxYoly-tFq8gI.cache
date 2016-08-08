@@ -1,0 +1,22 @@
+I"#(function() {
+  jQuery(function() {
+    var subcategories;
+    $('#support_subcategory_id').parent().hide();
+    subcategories = $('#support_category_id').html();
+    return $('#support_category_id').change(function() {
+      var category, escaped_category, options;
+      category = $('#support_category_id :selected').text();
+      escaped_category = category.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options = $(subcategories).filter("optgroup[label='" + escaped_category + "']").html();
+      if (options) {
+        $('#support_subcategory_id').html(options);
+        return $('#support_subcategory_id').parent().show();
+      } else {
+        $('#support_subcategory_id').empty();
+        return $('#support_subcategory_id').parent().hide();
+      }
+    });
+  });
+
+}).call(this);
+:ET
