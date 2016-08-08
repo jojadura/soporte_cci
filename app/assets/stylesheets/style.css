@@ -4,7 +4,7 @@ html, body {
     display: table;
     height: 100%;
     width: 100%;
-    background: url('texture.png') top left repeat;
+    background: image-url('texture.png') top left repeat;
 }
 
 #btn-new{
