@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-2">
+      <div id="detail_support">
+        <h1 id="detail_support_title">Detalle del Soporte: </h1> 
+        <h2 id="detail_support_show"><em><%= @support.title %></em></h2>
+        <hr style="clear:both;"/>
+        <p>
+          <strong>Descripción:</strong>
+          <%= @support.description %>
+        </p>
+        <p>
+          <strong>Prioridad:</strong>
+          <%= @support.priority.name %>
+        </p>
+        <p>
+          <strong>Imagen:</strong>
+          <%= image_tag  @support.screen %>
+        </p>
+
+        <% if @support.comments.any? %>
+            <% @support.comments.each do |comment| %>
+            <p>
+              <label>Usuario:</label><%= comment.user.name %>
+              <br>
+              <label>Mensaje:</label><%= comment.note %>
+              <br>
+              hace: <%= time_ago_in_words comment.created_at %>
+            <p>
+            <% end %>
+        <% end %>
+
+        <%= link_to 'Regresar', supports_path %>
+
+        <%= form_for(@comment, url:support_path) do |f| %>
+          <% if @comment.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+              <ul>
+              <% @comment.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="field">
+            <%= f.label :Comentario %><br>
+            <%= f.text_area :note %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit %>
+          </div>
+        <% end %>
+      </div>
+    </div> <!-- .col-sm -->
+  </div><!-- .row -->
+</div><!-- .container -->
+
+
+

@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<%  if form_title(@role) %>
+					<h1>Crear Rol</h1>		
+			<% end %>
+			<% if @role.errors.any? %>
+			  <div class="alert alert-danger">
+			    <ul>
+			    <% @role.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>			
+			<% if signed_in? %>
+				<%= form_for @role do |f| %>
+					<div class="form-group">
+						<%= f.text_field :name, class: "form-control input-lg", placeholder: "Ingrese el nombre del Rol" %>
+					</div>
+					<div>
+						<%= f.submit "Crear Rol", class: "btn btn-primary btn-lg" %> <%= link_to "Cancelar", roles_path, class: "btn btn-primary btn-lg" %>
+					</div>	
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

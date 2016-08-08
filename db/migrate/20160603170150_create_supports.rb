@@ -3,8 +3,7 @@ class CreateSupports < ActiveRecord::Migration
     create_table :supports do |t|
       t.string :title
       t.text :description
-      t.references :category, index: true, foreign_key: true
-      t.references :subcategory, index: true, foreign_key: true
+      t.integer :sub_categories_id
 
       t.timestamps null: false
     end

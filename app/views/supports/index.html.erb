@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">    	
+		<h1>Listado de Soportes</h1>
+		 
+		 <%= form_tag supports_path, :method =>'get',:remote=>true, :id=>"supports_search" do %>
+		   <%= text_field_tag :search, params[:search], class: "form-control input-lg", :placeholder=>"Escriba aquí para buscar" %>
+		   <%= hidden_field_tag :page, params[:page] %>
+		 <% end %>
+		 <br><br>		 
+    </div> <!-- .col-sm -->
+  </div><!-- .row -->
+</div><!-- .container -->
+
+		<div id="supports"><%= render 'supports' %></div>
+		<br>
+
+		<div id="centrar_boton">
+			<% if signed_in? %>
+				<%= link_to "Nuevo Soporte", new_support_path, class: "btn btn-primary" %>
+			<% else %>
+				<%= link_to "Nuevo Soporte", new_user_session_path, class: "btn btn-primary" %>
+			<% end %>	        				
+		</div>
+
+
+

@@ -13,4 +13,6 @@
 class SubCategory < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
+
+  validates :name, :category_id, presence: true
 end

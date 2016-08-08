@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<%  if form_title(@direction) %>
+					<h1>Crear Dirección</h1>		
+			<% end %>
+			<% if @direction.errors.any? %>
+			  <div class="alert alert-danger">
+			    <ul>
+			    <% @direction.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>			
+			<% if signed_in? %>
+				<%= form_for @direction do |f| %>
+					<div class="form-group">
+						<%= f.text_field :name, class: "form-control input-lg", placeholder: "Ingrese el nombre de la Dirección" %>
+					</div>
+					<div>
+						<%= f.submit "Crear Dirección", class: "btn btn-primary btn-lg" %> <%= link_to "Cancelar", directions_path, class: "btn btn-primary btn-lg" %>
+					</div>	
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

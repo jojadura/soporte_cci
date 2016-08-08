@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-1">
+            <table class="table table-responsive">
+                <thead>
+                    <th class="col-sm-2"></th>
+                    <th class="col-sm-4"></th>
+                    <th class="col-sm-6"></th>
+                </thead>
+                <div id="btn-new">
+                    <% if signed_in? %>
+                        <%= link_to "Nuevo Estado", new_state_path, class: "btn btn-primary" %>
+                    <% else %>
+                        <%= link_to "Nuevo Estado", new_user_session_path, class: "btn btn-primary" %>
+                    <% end %>               
+                </div>          
+
+                <h2>Estados</h2>
+                <% @states.each do |state| %>
+                  <tr>
+                    <td id="colorName-cat"><h3><%= state.name %>
+                    <td class="text-left">
+                      <div id="body-categories">
+                        <span>Creado por <%= state.user.email %> hace <%= time_ago_in_words state.created_at %> </span>
+                      </div>              
+                    </td>
+                    <td>
+                        <% if signed_in? %>
+                            <% if current_user.id == state.user.id %>
+                                <div id="body-categories">
+                                    <%= link_to "<span class='glyphicon glyphicon-pencil'>&nbsp;</span>".html_safe, edit_state_path(state) %>
+                                    <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, state_path(state), method: :delete, data: { confirm: "¿Desea eliminar este Estado?" } %>
+                                    </div>
+                            <% end %>
+                        <% end %>                                    
+                    </td>
+                    </div>
+                  </tr>
+                <% end %>
+              </table>         
+        </div> 
+    </div> <!-- .row-->
+</div> <!-- .container -->

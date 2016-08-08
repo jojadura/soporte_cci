@@ -7,6 +7,14 @@
                     <th class="col-sm-4"></th>
                     <th class="col-sm-6"></th>
                 </thead>
+                <div id="btn-new">
+                    <% if signed_in? %>
+                        <%= link_to "Nueva Categoría", new_category_path, class: "btn btn-primary" %>
+                    <% else %>
+                        <%= link_to "Nueva Categoría", new_user_session_path, class: "btn btn-primary" %>
+                    <% end %>               
+                </div>          
+
                 <h2>Categorías Soporte CCI</h2>
                 <% @categories.each do |category| %>
                   <tr>
@@ -14,6 +22,7 @@
                     <td class="text-left">
                       <div id="body-categories">
                         <span>Creado por <%= category.user.email %> hace <%= time_ago_in_words category.created_at %> </span>
+                        <span>Creado por <%= category.user.email %> hace <%= time_ago_in_words category.created_at unless category.created_at == nil %> </span>
                       </div>              
                     </td>
                     <td>

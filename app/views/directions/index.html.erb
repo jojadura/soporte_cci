@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-1">
+            <table class="table table-responsive">
+                <thead>
+                    <th class="col-sm-2"></th>
+                    <th class="col-sm-4"></th>
+                    <th class="col-sm-6"></th>
+                </thead>
+                <div id="btn-new">
+                    <% if signed_in? %>
+                        <%= link_to "Nueva Dirección", new_direction_path, class: "btn btn-primary" %>
+                    <% else %>
+                        <%= link_to "Nueva Dirección", new_user_session_path, class: "btn btn-primary" %>
+                    <% end %>               
+                </div>          
+
+                <h2>Direcciones</h2>
+                <% @directions.each do |direction| %>
+                  <tr>
+                    <td id="colorName-cat"><h3><%= direction.name %>
+                    <td class="text-left">
+                      <div id="body-categories">
+                        <span>Creado por <%= direction.user.email %> hace <%= time_ago_in_words direction.created_at %> </span>
+                      </div>              
+                    </td>
+                    <td>
+                        <% if signed_in? %>
+                            <% if current_user.id == direction.user.id %>
+                                <div id="body-categories">
+                                    <%= link_to "<span class='glyphicon glyphicon-pencil'>&nbsp;</span>".html_safe, edit_direction_path(direction) %>
+                                    <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, direction_path(direction), method: :delete, data: { confirm: "¿Desea eliminar esta Dirección?" } %>
+                                    </div>
+                            <% end %>
+                        <% end %>                                    
+                    </td>
+                    </div>
+                  </tr>
+                <% end %>
+              </table>         
+        </div> 
+    </div> <!-- .row-->
+</div> <!-- .container -->

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">    	
+		<h1>Administración de Soportes</h1>
+		 
+		 <%= form_tag assistance_index_path, :method =>'get',:remote=>true, :id=>"supports_search" do %>
+		   <%= text_field_tag :search, params[:search], class: "form-control input-lg", :placeholder=>"Escriba aquí para buscar" %>
+		 <% end %>
+		 <br><br>
+    </div> <!-- .col-sm -->
+  </div><!-- .row -->
+</div><!-- .container -->
+
+ <div id="supports"><%= render 'supports' %></div>
+
+<br>
+

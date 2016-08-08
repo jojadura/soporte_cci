@@ -7,6 +7,14 @@
                     <th class="col-sm-4"></th>
                     <th class="col-sm-6"></th>
                 </thead>
+                <div id="btn-new">
+                    <% if signed_in? %>
+                        <%= link_to "Nueva Sub-Categoría", new_sub_category_path, class: "btn btn-primary" %>
+                    <% else %>
+                        <%= link_to "Nueva Sub-Categoría", new_user_session_path, class: "btn btn-primary" %>
+                    <% end %>               
+                </div>          
+
                 <h2>Sub-Categorías Soporte CCI</h2>
                 <% @subcategories.each do |subcategory| %>
                   <tr>

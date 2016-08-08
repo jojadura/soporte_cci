@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<%  if form_title(@priority) %>
+					<h1>Crear Prioridad</h1>		
+			<% end %>
+			<% if @priority.errors.any? %>
+			  <div class="alert alert-danger">
+			    <ul>
+			    <% @priority.errors.full_messages.each do |msg| %>
+			      <li><%= msg %></li>
+			    <% end %>
+			    </ul>
+			  </div>
+			<% end %>			
+			<% if signed_in? %>
+				<%= form_for @priority do |f| %>
+					<div class="form-group">
+						<%= f.text_field :name, class: "form-control input-lg", placeholder: "Ingrese el nombre de la Prioridad" %>
+					</div>
+					<div>
+						<%= f.submit "Crear Prioridad", class: "btn btn-primary btn-lg" %> <%= link_to "Cancelar", priorities_path, class: "btn btn-primary btn-lg" %>
+					</div>	
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

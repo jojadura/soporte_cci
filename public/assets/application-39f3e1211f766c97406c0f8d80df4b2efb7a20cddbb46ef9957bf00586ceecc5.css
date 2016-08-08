@@ -1,0 +1,190 @@
+body {
+    padding-top: 70px;
+}
+
+#btn-new{
+	float:right;
+	padding: 70px 0 0 0px;
+}
+
+#body-categories{
+	color: #A09FA1;
+	padding-top: 26px;
+	font-size: 14px;
+}
+
+#colorName-cat{
+	text-align: left;
+	color: #ED564E;
+	padding-top: 10px;
+	font-size: 14px;
+}
+
+/*Barra Bootstrap*/
+
+nav.navbar {
+    background-color: #2382C0;
+    border-color: #4a404e;
+}
+
+nav.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+nav.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffffff;  
+}
+
+nav.navbar-default .navbar-nav > li > a:hover,
+nav.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #2382c0;
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a{  
+  color: #ffffff;
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover{
+	background-color: #5b5b5b;
+
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: #4a404e;
+}
+
+nav.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.alert-info {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+ #centrar_boton{
+    text-align: center;
+ }
+
+ .table{
+    font-weight: bold;
+    font-size: 16px;    
+ }
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 1, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+body {
+  padding-top: 70px;
+}
+
+/* line 5, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+#btn-new {
+  float: right;
+  padding: 70px 0 0 0px;
+}
+
+/* line 10, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+#body-categories {
+  color: #A09FA1;
+  padding-top: 26px;
+  font-size: 14px;
+}
+
+/* line 16, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+#colorName-cat {
+  text-align: left;
+  color: #ED564E;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+/*Barra Bootstrap*/
+/* line 25, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar {
+  background-color: #2382C0;
+  border-color: #4a404e;
+}
+
+/* line 30, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+/* line 34, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+
+/* line 39, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-nav > li > a:hover,
+nav.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+
+/* line 44, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #2382c0;
+}
+
+/* line 48, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+  color: #ffffff;
+}
+
+/* line 52, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover {
+  background-color: #5b5b5b;
+}
+
+/* line 57, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: #4a404e;
+}
+
+/* line 62, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+nav.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+/* line 66, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+.alert-info {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+/* line 73, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+#centrar_boton {
+  text-align: center;
+}
+
+/* line 77, C:/Sites/soporte_cci/app/assets/stylesheets/style.css */
+.table {
+  font-weight: bold;
+  font-size: 16px;
+}

@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603170150) do
+ActiveRecord::Schema.define(version: 20160804142608) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
     t.string   "title"
@@ -21,7 +24,57 @@ ActiveRecord::Schema.define(version: 20160603170150) do
     t.integer  "user_id"
   end
 
-  add_index "categories", ["user_id"], name: "index_categories_on_user_id"
+  add_index "categories", ["user_id"], name: "index_categories_on_user_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "note"
+    t.boolean  "read"
+    t.integer  "support_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["support_id"], name: "index_comments_on_support_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "directions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "directions", ["user_id"], name: "index_directions_on_user_id", using: :btree
+
+  create_table "priorities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "priorities", ["user_id"], name: "index_priorities_on_user_id", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  add_index "roles", ["user_id"], name: "index_roles_on_user_id", using: :btree
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.string   "color"
+    t.integer  "order"
+  end
+
+  add_index "states", ["user_id"], name: "index_states_on_user_id", using: :btree
 
   create_table "sub_categories", force: :cascade do |t|
     t.string   "name"
@@ -31,20 +84,28 @@ ActiveRecord::Schema.define(version: 20160603170150) do
     t.integer  "user_id"
   end
 
-  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id"
-  add_index "sub_categories", ["user_id"], name: "index_sub_categories_on_user_id"
+  add_index "sub_categories", ["category_id"], name: "index_sub_categories_on_category_id", using: :btree
+  add_index "sub_categories", ["user_id"], name: "index_sub_categories_on_user_id", using: :btree
 
   create_table "supports", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "category_id"
-    t.integer  "subcategory_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "sub_categories_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "priority_id"
+    t.integer  "user_id"
+    t.string   "screen"
+    t.integer  "state_id"
+    t.integer  "poll"
+    t.datetime "date_pending"
+    t.datetime "date_preclose"
+    t.datetime "date_close"
   end
 
-  add_index "supports", ["category_id"], name: "index_supports_on_category_id"
-  add_index "supports", ["subcategory_id"], name: "index_supports_on_subcategory_id"
+  add_index "supports", ["priority_id"], name: "index_supports_on_priority_id", using: :btree
+  add_index "supports", ["state_id"], name: "index_supports_on_state_id", using: :btree
+  add_index "supports", ["user_id"], name: "index_supports_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -59,9 +120,29 @@ ActiveRecord::Schema.define(version: 20160603170150) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "role_id"
+    t.string   "name"
+    t.integer  "direction_id"
+    t.string   "avatar"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["direction_id"], name: "index_users_on_direction_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
+  add_foreign_key "categories", "users"
+  add_foreign_key "comments", "supports"
+  add_foreign_key "comments", "users"
+  add_foreign_key "directions", "users"
+  add_foreign_key "priorities", "users"
+  add_foreign_key "roles", "users"
+  add_foreign_key "states", "users"
+  add_foreign_key "sub_categories", "categories"
+  add_foreign_key "sub_categories", "users"
+  add_foreign_key "supports", "priorities"
+  add_foreign_key "supports", "states"
+  add_foreign_key "supports", "users"
+  add_foreign_key "users", "directions"
+  add_foreign_key "users", "roles"
 end

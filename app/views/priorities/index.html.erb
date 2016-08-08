@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-1">
+            <table class="table table-responsive">
+                <thead>
+                    <th class="col-sm-2"></th>
+                    <th class="col-sm-4"></th>
+                    <th class="col-sm-6"></th>
+                </thead>
+                <div id="btn-new">
+                    <% if signed_in? %>
+                        <%= link_to "Nueva Prioridad", new_priority_path, class: "btn btn-primary" %>
+                    <% else %>
+                        <%= link_to "Nueva Prioridad", new_user_session_path, class: "btn btn-primary" %>
+                    <% end %>               
+                </div>          
+
+                <h2>Prioridades</h2>
+                <% @priorities.each do |priority| %>
+                  <tr>
+                    <td id="colorName-cat"><h3><%= priority.name %>
+                    <td class="text-left">
+                      <div id="body-categories">
+                        <span>Creado por <%= priority.user.email %> hace <%= time_ago_in_words priority.created_at %> </span>
+                      </div>              
+                    </td>
+                    <td>
+                        <% if signed_in? %>
+                            <% if current_user.id == priority.user.id %>
+                                <div id="body-categories">
+                                    <%= link_to "<span class='glyphicon glyphicon-pencil'>&nbsp;</span>".html_safe, edit_priority_path(priority) %>
+                                    <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, priority_path(priority), method: :delete, data: { confirm: "¿Desea eliminar esta Prioridad?" } %>
+                                    </div>
+                            <% end %>
+                        <% end %>                                    
+                    </td>
+                    </div>
+                  </tr>
+                <% end %>
+              </table>         
+        </div> 
+    </div> <!-- .row-->
+</div> <!-- .container -->

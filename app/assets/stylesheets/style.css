@@ -1,5 +1,15 @@
-body {
-    padding-top: 70px;
+html, body {
+    padding-top: 30px;    
+    margin: 0;
+    display: table;
+    height: 100%;
+    width: 100%;
+    background: url('texture.png') top left repeat;
+}
+
+#btn-new{
+	float:right;
+	padding: 70px 0 0 0px;
 }
 
 #body-categories{
@@ -13,4 +23,142 @@ body {
 	color: #ED564E;
 	padding-top: 10px;
 	font-size: 14px;
+}
+
+/*Barra Bootstrap*/
+
+nav.navbar {
+    background-color: #2382C0;
+    border-color: #4a404e;
+}
+
+nav.navbar-default .navbar-brand {
+  color: #ffffff;
+}
+
+nav.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffffff;  
+}
+
+nav.navbar-default .navbar-nav > li > a:hover,
+nav.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu {
+  background-color: #2382c0;
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a{  
+  color: #ffffff;
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover{
+	background-color: #5b5b5b;
+
+}
+
+nav.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: #4a404e;
+}
+
+nav.navbar-default .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.alert-info {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #468847;
+    text-align: left;
+ }
+
+ #centrar_boton{
+    text-align: center;
+ }
+
+ .table{
+    font-weight: bold;
+    font-size: 16px;    
+ }
+
+#support th, #assistance th{
+    background:#328aa4;
+    color: white;
+    text-align: center;
+} 
+
+#avatar{
+    padding-top: 5px;
+    
+}
+
+#detail_support{
+    padding-top: 50px;    
+}
+
+#detail_support_title{
+    color: #2382C0;   
+    text-align: left;
+    float: left; 
+}
+
+#detail_support_show{
+    color: #000;    
+    padding-top: 5px;
+    font-weight: bolder;
+    font-size: 28px;
+    text-indent:0.5cm;
+}
+
+
+/*  
+Ventada modal de Encuesta.
+*/
+.modal-body {
+    position: relative;
+    padding: 0px 15px 15px 15px;
+}
+.modal-header {
+     padding: 0px 15px 0px 15px;;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    /*pointer-events: none; */
+    width: 70%;
+    height: 40%;
+    margin: 15% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);    
+}
+
+.container {
+    height: auto;
+}
+
+footer {
+    display: table-row;
+    height: 40px;
+    background-color: #F9F9F9;
+    color: #A09FA1;
+    text-align: center;
 }

@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <%= paginate @supports %>
+      <table class="table table-bordered" id="assistance">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Titulo</th>
+            <th>Fecha</th>
+            <th>Hora</th>            
+            <th>Funcionario</th>
+            <th>Categoría/SubCategoría</th>
+            <th>Prioridad</th>
+            <th>Imagen</th>
+            <th>Estado</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @supports.each do |support| %>
+            <tr  style="background-color:<%= support.state.color %>">
+              <td><%= support.id %></td>
+              <td><%= link_to support.title, assistance_path(support) %></td>              
+              <td><%= support.created_at.strftime("%F") %></td>
+              <td><%= support.created_at.strftime("%H:%M:%S") %></td>
+              <td><%= support.user.name %></td>
+              <td><%= support.subCategory.name %></td>
+              <td><%= support.priority.name %></td>
+              <td><%= image_tag(support.screen.url(:thumb), size: "40X40") %></td>
+              <td> <div style="background-color:<%= support.state.color %>"> <%= support.state.name %></div></td>
+              <td><%= link_to 'Pre-Finalizar', pre_close_support_assistance_path(support), method: :pre_close, data: { confirm: 'Esta seguro de pre-finalizar el soporte?' } unless support.state.order==1 || support.state.order==3 || support.state.order==4 %>
+              </td>        
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div> <!-- .col-sm -->
+  </div><!-- .row -->
+</div><!-- .container -->

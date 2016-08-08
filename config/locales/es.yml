@@ -1,0 +1,43 @@
+es:
+  errors: 
+    messages:
+      blank: "no puede estar en blanco"
+      invalid: "es inválido"
+      too_short: "Mínimo 6 caracteres"
+      taken: "La dirección de correo electrónico ya existe"
+
+  activerecord:
+    attributes:
+      category:
+        title: "Titulo"
+
+      sub_category:
+        name: Nombre 
+        category_id: Categoría
+
+      state:
+        name: "Nombre"  
+
+      direction:
+        name: "Nombre"  
+
+      priority:
+        name: "Nombre"  
+
+      role:
+        name: "Nombre" 
+
+      support:
+        title: Titulo
+        category_id: Categoría 
+        sub_categories_id: Sub-Categoría
+        priority_id: Prioridad
+
+      user:
+        name: Nombre 
+        sub_categories_id: Sub-Categoría
+        priority_id: Prioridad
+        direction_id: Área
+        email: Correo
+        password: Contraseña
+        current_password: Contraseña Actual
