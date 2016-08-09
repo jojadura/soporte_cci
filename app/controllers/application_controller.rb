@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
     end  
 
 
+=begin
     def configure_devise_permitted_parameters
       registration_params = [:name, :direction_id, :email, :avatar, :password, :password_confirmation]
 
@@ -28,6 +29,21 @@ class ApplicationController < ActionController::Base
         }
       elsif params[:action] == 'create'
         devise_parameter_sanitizer.for(:sign_up) { 
+          |u| u.permit(registration_params) 
+        }
+      end
+    end
+=end
+
+    def configure_devise_permitted_parameters
+      registration_params = [:name, :direction_id, :email, :avatar, :password, :password_confirmation]
+
+      if params[:action] == 'update'
+        devise_parameter_sanitizer.permit(:account_update) { 
+          |u| u.permit(registration_params << :current_password)
+        }
+      elsif params[:action] == 'create'
+        devise_parameter_sanitizer.permit(:sign_up) { 
           |u| u.permit(registration_params) 
         }
       end
