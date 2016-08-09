@@ -40,37 +40,6 @@
     State.find_or_create_by(:name=>"Finalizado",:color=>"#20c807")
      puts "Se creo State Finalizado"
 
-Direction.create!({
-    :name=>'Dirección Jurídica',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Competitividad e Innovación',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Comercial y Mercadeo',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Administrativa y Financiera',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Investigaciones y Publicidad',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-=end
 
     User.create!({
         :email=>'prosoporte@ccibague.org',
@@ -83,3 +52,39 @@ Direction.create!({
         :created_at=> Time.now.strftime("%Y-%m-%d"),
         :updated_at=> Time.now.strftime("%Y-%m-%d"),
          })
+=end
+
+Direction.create!({
+    :name=>'Dirección Jurídica',
+    :user_id => '3',
+    :created_at=> Time.now.strftime("%Y-%m-%d"),
+    :updated_at=> Time.now.strftime("%Y-%m-%d"),
+ })
+
+Direction.create!({
+    :name=>'Dirección Competitividad e Innovación',
+    :user_id => '3',
+    :created_at=> Time.now.strftime("%Y-%m-%d"),
+    :updated_at=> Time.now.strftime("%Y-%m-%d"),
+ })
+
+Direction.create!({
+    :name=>'Dirección Comercial y Mercadeo',
+    :user_id => '3',
+    :created_at=> Time.now.strftime("%Y-%m-%d"),
+    :updated_at=> Time.now.strftime("%Y-%m-%d"),
+ })
+
+Direction.create!({
+    :name=>'Dirección Administrativa y Financiera',
+    :user_id => '3',
+    :created_at=> Time.now.strftime("%Y-%m-%d"),
+    :updated_at=> Time.now.strftime("%Y-%m-%d"),
+ })
+
+Direction.create!({
+    :name=>'Dirección Investigaciones y Publicidad',
+    :user_id => '3',
+    :created_at=> Time.now.strftime("%Y-%m-%d"),
+    :updated_at=> Time.now.strftime("%Y-%m-%d"),
+ })
