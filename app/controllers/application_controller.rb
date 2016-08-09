@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
-
   helper_method :user_admin?,:user_usuario?
 
   protected
@@ -59,6 +58,7 @@ class ApplicationController < ActionController::Base
        elsif  current_user.role.name == "Usuario"
         supports_path
        end
-    end   
+    end
+
     
 end

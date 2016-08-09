@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   validates :name, :direction_id, presence: true
+  #devise :timeoutable, :timeout_in => 1.minutes
+  devise :authenticatable, :timeoutable, :validatable, :timeout_in => 2.minutes
   
   def set_default_role
     self.role_id ||= Role.usuario.id
