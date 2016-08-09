@@ -79,7 +79,7 @@ Direction.create!({
         :encrypted_password=> User.new(:password => '123456').encrypted_password,
         :name=> 'John Jairo Dussán',
         :direction_id => '3',
-        :role_id => Role.admin.id,
+        :role_id => '1',
         :created_at=> Time.now.strftime("%Y-%m-%d"),
         :updated_at=> Time.now.strftime("%Y-%m-%d"),
          })
