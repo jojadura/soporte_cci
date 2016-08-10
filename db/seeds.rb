@@ -89,14 +89,14 @@
          })
 
 =end
-    State.find_or_create_by(:name=>"Abierto",:color=>"#e31919")
+    State.find_or_create_by(:name=>"Abierto",:color=>"#e31919",:user_id=>"1",:order=>"1")
      puts "Se creo State Abierto"
     
-    State.find_or_create_by(:name=>"Pendiente",:color=>"#f9f822")
+    State.find_or_create_by(:name=>"Pendiente",:color=>"#f9f822",:user_id=>"1",:order=>"2")
      puts "Se creo State Pendiente"
     
-    State.find_or_create_by(:name=>"Pre-finalizado",:color=>"#1148cc")
+    State.find_or_create_by(:name=>"Pre-finalizado",:color=>"#1148cc",:user_id=>"1",:order=>"3")
      puts "Se creo State Pre-finalizado"
     
-    State.find_or_create_by(:name=>"Finalizado",:color=>"#20c807")
+    State.find_or_create_by(:name=>"Finalizado",:color=>"#20c807",:user_id=>"1",:order=>"4")
      puts "Se creo State Finalizado"
