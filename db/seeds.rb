@@ -52,39 +52,51 @@
         :created_at=> Time.now.strftime("%Y-%m-%d"),
         :updated_at=> Time.now.strftime("%Y-%m-%d"),
          })
+
+        Direction.create!({
+            :name=>'Dirección Jurídica',
+            :user_id => '3',
+            :created_at=> Time.now.strftime("%Y-%m-%d"),
+            :updated_at=> Time.now.strftime("%Y-%m-%d"),
+         })
+
+        Direction.create!({
+            :name=>'Dirección Competitividad e Innovación',
+            :user_id => '3',
+            :created_at=> Time.now.strftime("%Y-%m-%d"),
+            :updated_at=> Time.now.strftime("%Y-%m-%d"),
+         })
+
+        Direction.create!({
+            :name=>'Dirección Comercial y Mercadeo',
+            :user_id => '3',
+            :created_at=> Time.now.strftime("%Y-%m-%d"),
+            :updated_at=> Time.now.strftime("%Y-%m-%d"),
+         })
+
+        Direction.create!({
+            :name=>'Dirección Administrativa y Financiera',
+            :user_id => '3',
+            :created_at=> Time.now.strftime("%Y-%m-%d"),
+            :updated_at=> Time.now.strftime("%Y-%m-%d"),
+         })
+
+        Direction.create!({
+            :name=>'Dirección Investigaciones y Publicidad',
+            :user_id => '3',
+            :created_at=> Time.now.strftime("%Y-%m-%d"),
+            :updated_at=> Time.now.strftime("%Y-%m-%d"),
+         })
+
 =end
-
-Direction.create!({
-    :name=>'Dirección Jurídica',
-    :user_id => '3',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Competitividad e Innovación',
-    :user_id => '3',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Comercial y Mercadeo',
-    :user_id => '3',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Administrativa y Financiera',
-    :user_id => '3',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
-
-Direction.create!({
-    :name=>'Dirección Investigaciones y Publicidad',
-    :user_id => '3',
-    :created_at=> Time.now.strftime("%Y-%m-%d"),
-    :updated_at=> Time.now.strftime("%Y-%m-%d"),
- })
+    State.find_or_create_by(:name=>"Abierto",:color=>"#e31919")
+     puts "Se creo State Abierto"
+    
+    State.find_or_create_by(:name=>"Pendiente",:color=>"#f9f822")
+     puts "Se creo State Pendiente"
+    
+    State.find_or_create_by(:name=>"Pre-finalizado",:color=>"#1148cc")
+     puts "Se creo State Pre-finalizado"
+    
+    State.find_or_create_by(:name=>"Finalizado",:color=>"#20c807")
+     puts "Se creo State Finalizado"
